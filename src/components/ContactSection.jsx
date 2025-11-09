@@ -65,42 +65,50 @@ export const ContactSection = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('https://formspree.io/f/xwpbojaj', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  e.preventDefault();
 
-      if (response.ok) {
-        toast({
-          title: "Message sent! 🎉",
-          description: "I'll get back to you within 24 hours.",
-          variant: "success",
-          className: "bg-green-600 text-white dark:bg-green-500 border border-green-700 shadow-lg"
-        });
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
+  if (!validateForm()) return;
+
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("https://formspree.io/f/mpwkajbd", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // ✅ send exact keys Formspree expects
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      }),
+    });
+
+    if (response.ok) {
       toast({
-        title: "Oops! Something went wrong",
-        description: "Please try again or email me directly at codewithkinu@gmail.com",
-        variant: "destructive"
+        title: "✅ Message Sent Successfully!",
+        description: "Thank you for reaching out, Sowbarnika will reply soon!",
+        variant: "success",
+        className:
+          "bg-green-600 text-white dark:bg-green-500 border border-green-700 shadow-lg",
       });
-    } finally {
-      setIsSubmitting(false);
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      throw new Error("Failed to send message");
     }
-  };
+  } catch (error) {
+    toast({
+      title: "⚠️ Something went wrong",
+      description:
+        "Please try again or email me directly at sowbarnikayoganathan57@gmail.com",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative bg-background">
@@ -133,10 +141,10 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Email</p>
                   <a
-                    href="mailto:codewithkinu@gmail.com"
+                    href="mailto:sowbarnikayoganathan57@gmail.com"
                     className="text-sm sm:text-base font-medium hover:text-primary transition-colors"
                   >
-                    codewithkinu@gmail.com
+                    sowbarnikayoganathan57@gmail.com
                   </a>
                 </div>
               </div>
@@ -148,10 +156,10 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Phone</p>
                   <a
-                    href="tel:+919315145594"
+                    href="tel:+918608116681"
                     className="text-sm sm:text-base font-medium hover:text-primary transition-colors"
                   >
-                    +91 9315145594
+                    +91 8608116681
                   </a>
                 </div>
               </div>
@@ -163,7 +171,7 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Location</p>
                   <span className="text-sm sm:text-base font-medium">
-                    Bengaluru, Karnataka India
+                    Perumanallur,Tirupur,TamilNadu India
                   </span>
                 </div>
               </div>
@@ -176,23 +184,23 @@ export const ContactSection = () => {
                   {
                     icon: Linkedin,
                     label: "LinkedIn",
-                    url: "https://www.linkedin.com/in/codewithkinu",
+                    url: "www.linkedin.com/in/sowbarnika-yoganathan-b4a97a237",
                   },
-                  {
-                    icon: Twitter,
-                    label: "Twitter",
-                    url: "#",
-                  },
+                  // {
+                  //   icon: Twitter,
+                  //   label: "Twitter",
+                  //   url: "#",
+                  // },
                   {
                     icon: Github,
                     label: "GitHub",
-                    url: "https://github.com/Sahilmd01",
+                    url: "https://github.com/sowbarnika-dev-prog",
                   },
-                  {
-                    icon: Instagram,
-                    label: "Instagram",
-                    url: "https://www.instagram.com/dubbinut",
-                  },
+                  // {
+                  //   icon: Instagram,
+                  //   label: "Instagram",
+                  //   url: "https://www.instagram.com/dubbinut",
+                  // },
                 ].map((social, index) => (
                   <a
                     key={index}

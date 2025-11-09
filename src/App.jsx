@@ -79,7 +79,7 @@ function App() {
       disableTransitionOnChange
     >
       <Toaster />
-      <BrowserRouter basename="/sowbarnika_portfolio">  {/* ← Make sure this is here */}
+      <BrowserRouter basename="/sowbarnika_portfolio"> 
         <Routes>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />

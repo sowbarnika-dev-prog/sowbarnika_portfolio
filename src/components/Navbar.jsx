@@ -23,10 +23,10 @@ const navItems = [
   { name: "Home", href: "#hero", icon: Home },
   { name: "About", href: "#about", icon: User },
   { name: "Skills", href: "#skills", icon: Code },
-  { name: "Projects", href: "#projects", icon: Briefcase },
-  { name: "Testimonials", href: "#testimonials", icon: MessageSquare },
+  // { name: "Projects", href: "#projects", icon: Briefcase },
+  // { name: "Testimonials", href: "#testimonials", icon: MessageSquare },
   { name: "Contact", href: "#contact", icon: Mail },
-  { name: "Blog", href: "https://blogni.vercel.app", icon: BookOpen },
+  // { name: "Blog", href: "https://blogni.vercel.app", icon: BookOpen },
 ];
 
 const ThemeToggle = () => {
@@ -147,28 +147,10 @@ export const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        {/* Website Globe Button */}
-        <motion.a
-          href="https://avoliq.vercel.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-green-600 hover:bg-green-100 dark:hover:bg-green-900/50",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center"
-          )}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          title="My Website"
-          aria-label="My Website"
-        >
-          <Globe className="w-5 h-5" />
-        </motion.a>
-
+     
         {/* GitHub Button */}
         <motion.a
-          href="https://github.com/sahilmd01" 
+          href="https://github.com/sowbarnika-dev-prog" 
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -187,7 +169,7 @@ export const Navbar = () => {
 
         {/* LinkedIn Button */}
         <motion.a
-          href="https://linkedin.com/in/codewithkinu" 
+          href="www.linkedin.com/in/sowbarnika-yoganathan-b4a97a237" 
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -204,47 +186,7 @@ export const Navbar = () => {
           <Linkedin className="w-5 h-5" />
         </motion.a>
 
-        {/* YouTube Button */}
-        <motion.a
-          href="https://www.youtube.com/@codewithkinu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-red-600 hover:bg-red-100 dark:hover:bg-red-900/50",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center"
-          )}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          title="YouTube Channel"
-          aria-label="YouTube Channel"
-        >
-          <Youtube className="w-5 h-5" />
-        </motion.a>
-
-        {/* Music Button */}
-        <motion.button
-          onClick={toggleMusic}
-          disabled={!isAudioReady}
-          className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-primary hover:bg-primary/10 dark:hover:bg-primary/20",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center",
-            !isAudioReady && "opacity-50 cursor-not-allowed"
-          )}
-          whileHover={{ scale: isAudioReady ? 1.05 : 1 }}
-          whileTap={{ scale: isAudioReady ? 0.95 : 1 }}
-          title={
-            isAudioReady ? (isMusicPlaying ? "Pause music" : "Play music") : "Loading music..."
-          }
-          aria-label={
-            isAudioReady ? (isMusicPlaying ? "Pause music" : "Play music") : "Loading music"
-          }
-        >
-          {isMusicPlaying ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
-        </motion.button>
+       
       </motion.div>
 
       {/* Bottom Navbar */}
